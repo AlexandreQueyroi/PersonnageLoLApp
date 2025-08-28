@@ -1,0 +1,17 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PersonnageLoLApp.Pages.AddPersonnagePage"
+             Title="Ajouter un personnage">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <Label Text="Ajouter un nouveau personnage" FontSize="22" FontAttributes="Bold" />
+
+        <Entry x:Name="NomEntry" Placeholder="Nom" />
+        <Entry x:Name="RoleEntry" Placeholder="Rôle" />
+        <Entry x:Name="PvEntry" Placeholder="PV" Keyboard="Numeric" />
+        <Entry x:Name="AttaqueEntry" Placeholder="Attaque" Keyboard="Numeric" />
+
+        <Button Text="Enregistrer" Clicked="OnSaveClicked" BackgroundColor="Green" TextColor="White"/>
+        <Button Text="Annuler" Clicked="OnCancelClicked" BackgroundColor="Gray" TextColor="White"/>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 using PersonnageLoLApp.Services;
-
+using PersonnageLoLApp.Pages;
 namespace PersonnageLoLApp;
 
 public partial class MainPage : ContentPage
@@ -26,7 +26,13 @@ public partial class MainPage : ContentPage
         var personnages = await _api.GetPersonnagesAsync();
         PersonnagesList.ItemsSource = personnages;
     }
+    
 
+    private async void OnAddClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushModalAsync(new AddPersonnagePage());
+    }
+    
     private async void OnLoadClicked(object sender, EventArgs e)
     {
         var personnages = await _api.GetPersonnagesAsync();

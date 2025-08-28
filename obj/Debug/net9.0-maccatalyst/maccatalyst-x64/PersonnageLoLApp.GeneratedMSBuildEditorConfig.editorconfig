@@ -36,6 +36,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = PersonnageLoLApp.MainPage.
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
+[C:/Users/alexa/Desktop/PersonnageLoLApp/Pages/AddPersonnagePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = PersonnageLoLApp.Pages.AddPersonnagePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\AddPersonnagePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\AddPersonnagePage.xaml
+
 [C:/Users/alexa/Desktop/PersonnageLoLApp/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = PersonnageLoLApp.Resources.Styles.Colors.xaml
