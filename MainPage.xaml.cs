@@ -1,23 +1,35 @@
-﻿namespace PersonnageLoLApp;
+﻿using System.Windows.Input;
+using PersonnageLoLApp.Services;
+
+namespace PersonnageLoLApp;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+    private readonly ApiService _api = new();
 
-	public MainPage()
-	{
-		InitializeComponent();
-	}
+    public ICommand DeleteCommand { get; }
 
-	private void OnCounterClicked(object? sender, EventArgs e)
-	{
-		count++;
+    public MainPage()
+    {
+        InitializeComponent();
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
+        DeleteCommand = new Command<int>(async (id) => await DeletePersonnage(id));
+        BindingContext = this;
+    }
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+    private async Task DeletePersonnage(int id)
+    {
+        bool confirm = await DisplayAlert("Confirmer", "Supprimer ce personnage ?", "Oui", "Non");
+        if (!confirm) return;
+
+        await _api.DeletePersonnageAsync(id);
+        var personnages = await _api.GetPersonnagesAsync();
+        PersonnagesList.ItemsSource = personnages;
+    }
+
+    private async void OnLoadClicked(object sender, EventArgs e)
+    {
+        var personnages = await _api.GetPersonnagesAsync();
+        PersonnagesList.ItemsSource = personnages;
+    }
 }
